@@ -1,0 +1,25 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+
+  &-item {
+    width: 70px;
+    height: 70px;
+    position: relative;
+
+    .icon {
+      width: 35px;
+      height: 35px;
+      color: var(--color-app4);
+    }
+
+    &:hover {
+      background-color: var(--color-app4);
+      cursor: pointer;
+
+      .icon {
+        color: var(--color-app2);
+      }
+    }
+  }
+}

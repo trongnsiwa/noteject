@@ -6,14 +6,16 @@
 $nb-enable-css-custom-properties: true;
 
 $nb-themes: nb-register-theme((
+  // app color
   color-reset: #acacac,
   color-dark: #383838,
   
   color-app1: #ebe5e3,
   color-app2: #d2dfcc,
   color-app3: #b5a497,
-  color-app5: #8d8579,
+  color-app4: #8d8579,
 
+  // custom color
   color-primary-100: #FBF8F2,
   color-primary-200: #F7F1E7,
   color-primary-300: #E8DED1,
@@ -60,23 +62,31 @@ $nb-themes: nb-register-theme((
   color-danger-800: #930F18,
   color-danger-900: #7A0919,
 
+  // custom basic background color
   background-basic-color-1: color-app3,
   background-basic-color-2: color-basic-800,
   background-basic-color-3: white,
   background-basic-color-4: color-basic-100,
 
+  // custom basic border color
   border-basic-color-1: color-basic-700,
   border-basic-color-2: color-basic-800,
   border-basic-color-3: color-basic-900,
   border-basic-color-4: color-basic-1000,
   border-basic-color-5: color-basic-1100,
 
+  // custom basic text color
   text-disabled-color: color-basic-600,
 
+  // custom font
   font-family-primary: "'Inter', sans-serif",
   font-family-secondary: "'Inter', sans-serif",
 
+  // layout header
   header-height: 50px,
-  header-padding: 0
+  header-padding: 0,
 
+  // layout sidebar
+  sidebar-width-compact: 70px,
+  sidebar-padding: 0,
 ), note, corporate);
