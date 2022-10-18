@@ -103,6 +103,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "client-noteject:build:production",
+            "firebaseProject": "trongnsi-noteject",
+            "firebaseHostingSite": "trongnsi-noteject"
+          }
         }
       }
     }

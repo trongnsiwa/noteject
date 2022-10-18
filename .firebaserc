@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "trongnsi-noteject": {
+      "hosting": {
+        "client-noteject": [
+          "trongnsi-noteject"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "trongnsi-noteject"
+  }
+}
