@@ -1,0 +1,57 @@
+.menu-sidebar {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+
+  &-start {
+    height: 50%;
+
+    &-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--accordion-padding);
+      font-size: var(--accordion-header-text-font-size);
+      font-weight: var(--accordion-header-text-font-weight);
+      line-height: var(--accordion-header-text-line-height);
+      color: white;
+    }
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      position: relative;
+
+      &:hover {
+        background-color: var(--color-app2);
+        border-radius: 5px;
+        color: var(--color-app4);
+        cursor: pointer;
+      }
+    }
+  }
+
+  &-end {
+    height: 50%;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+
+    nb-accordion-item {
+      &.collapsed {
+        nb-accordion-item-body {
+          transition: all 0.2s ease-in;
+          margin-bottom: 0%;
+        }
+      }
+
+      &.expanded {
+        nb-accordion-item-body {
+          transition: all 0.2s ease-out;
+          margin-bottom: 80%;
+        }
+      }
+    }
+  }
+}

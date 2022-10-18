@@ -64,16 +64,7 @@ $nb-themes: nb-register-theme((
 
   // custom basic background color
   background-basic-color-1: color-app3,
-  background-basic-color-2: color-basic-800,
   background-basic-color-3: white,
-  background-basic-color-4: color-basic-100,
-
-  // custom basic border color
-  border-basic-color-1: color-basic-700,
-  border-basic-color-2: color-basic-800,
-  border-basic-color-3: color-basic-900,
-  border-basic-color-4: color-basic-1000,
-  border-basic-color-5: color-basic-1100,
 
   // custom basic text color
   text-disabled-color: color-basic-600,
@@ -89,4 +80,11 @@ $nb-themes: nb-register-theme((
   // layout sidebar
   sidebar-width-compact: 70px,
   sidebar-padding: 0,
+
+  // layout column
+  layout-padding: 0,
+
+  // accordion
+  accordion-header-border-width: 0,
+  accordion-header-text-color: white,
 ), note, corporate);
