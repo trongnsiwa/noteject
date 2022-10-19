@@ -84,12 +84,36 @@ $nb-themes: nb-register-theme(
 
     // layout column
     layout-padding: 0,
+    layout-small-padding: 0,
+    layout-medium-padding: 0,
 
     // accordion
     accordion-header-border-width: 0,
     accordion-header-text-color: white,
     accordion-border-radius: 0,
-    accordion-shadow: none
+    accordion-shadow: none,
+
+    // checkbox
+    checkbox-border-radius: 5px,
+    checkbox-outline-color: color-app2,
+    checkbox-height: 18px,
+    checkbox-width: 18px,
+    checkbox-text-font-size: 12px,
+    checkbox-text-font-weight: 400,
+    color-primary-default: color-app2,
+    color-primary-default-border: color-app2,
+    color-primary-transparent-default: color-app2,
+    color-primary-transparent-default-border: color-app2,
+    color-primary-transparent-focus: color-app2,
+    color-primary-transparent-focus-border: color-app4,
+    color-primary-transparent-hover: color-app4,
+    color-primary-transparent-hover-border: color-app2,
+    color-primary-hover: color-app4,
+    color-primary-hover-border: color-app2,
+    color-primary-transparent-active: color-app2,
+    color-primary-transparent-active-border: color-app2,
+    color-primary-active: color-app2,
+    color-primary-active-border: color-app2
   ),
   note,
   corporate

@@ -12,7 +12,10 @@
       </div>
     </div>
     <div class="menu-sidebar-start-body">
-      <app-pending-work *ngFor="let work of pendingWorks"></app-pending-work>
+      <app-pending-work
+        *ngFor="let work of pendingWorks"
+        [pendingWork]="work"
+      ></app-pending-work>
     </div>
   </div>
   <div class="menu-sidebar-end">
@@ -20,13 +23,19 @@
       <nb-accordion-item [expanded]="true">
         <nb-accordion-item-header>Today's works</nb-accordion-item-header>
         <nb-accordion-item-body>
-          <app-todo-work *ngFor="let work of todayWorks"></app-todo-work>
+          <app-todo-work
+            *ngFor="let work of todayWorks"
+            [todoWork]="work"
+          ></app-todo-work>
         </nb-accordion-item-body>
       </nb-accordion-item>
       <nb-accordion-item>
         <nb-accordion-item-header>Saved works</nb-accordion-item-header>
         <nb-accordion-item-body>
-          <app-todo-work *ngFor="let work of savedWorks"></app-todo-work>
+          <app-todo-work
+            *ngFor="let work of savedWorks"
+            [todoWork]="work"
+          ></app-todo-work>
         </nb-accordion-item-body>
       </nb-accordion-item>
     </nb-accordion>

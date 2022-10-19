@@ -2,7 +2,7 @@
   <a
     routerLink="/calendar"
     routerLinkActive="active"
-    #rla="routerLinkActive"
+    #rla1="routerLinkActive"
     class="sidebar-item"
   >
     <div class="center">
@@ -11,21 +11,21 @@
         icon="calendar"
         pack="eva"
         class="icon"
-        *ngIf="rla.isActive"
+        *ngIf="rla1.isActive"
       ></nb-icon>
       <nb-icon
         nbPrefix
         icon="calendar-outline"
         pack="eva"
         class="icon"
-        *ngIf="!rla.isActive"
+        *ngIf="!rla1.isActive"
       ></nb-icon>
     </div>
   </a>
   <a
     routerLink="/board"
     routerLinkActive="active"
-    #rla="routerLinkActive"
+    #rla2="routerLinkActive"
     class="sidebar-item"
   >
     <div class="center">
@@ -34,21 +34,21 @@
         icon="map"
         pack="eva"
         class="icon"
-        *ngIf="rla.isActive"
+        *ngIf="rla2.isActive"
       ></nb-icon>
       <nb-icon
         nbPrefix
         icon="map-outline"
         pack="eva"
         class="icon"
-        *ngIf="!rla.isActive"
+        *ngIf="!rla2.isActive"
       ></nb-icon>
     </div>
   </a>
   <a
     routerLink="/note"
     routerLinkActive="active"
-    #rla="routerLinkActive"
+    #rla3="routerLinkActive"
     class="sidebar-item"
   >
     <div class="center">
@@ -57,14 +57,14 @@
         icon="book-open"
         pack="eva"
         class="icon"
-        *ngIf="rla.isActive"
+        *ngIf="rla3.isActive"
       ></nb-icon>
       <nb-icon
         nbPrefix
         icon="book-open-outline"
         pack="eva"
         class="icon"
-        *ngIf="!rla.isActive"
+        *ngIf="!rla3.isActive"
       ></nb-icon>
     </div>
   </a>

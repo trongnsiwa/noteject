@@ -19,6 +19,7 @@
       line-height: var(--accordion-header-text-line-height);
       color: white;
       height: 64px;
+      border-top: 1px solid var(--color-app4);
     }
 
     .icon {
@@ -66,33 +67,55 @@
 
       &:not(:has(.expanded)) {
         justify-content: end !important;
+
+        nb-accordion-item-header {
+          padding: 0 var(--accordion-padding) !important;
+        }
       }
 
       &-item {
-        border-top: 1px solid var(--color-app4);
-        position: relative;
         overflow: hidden;
 
+        &-header {
+          height: 64px;
+          border-top: 1px solid var(--color-app4);
+        }
+
         &.collapsed {
+          flex-grow: 0;
+
           nb-accordion-item-body {
-            transition: height 0.2s ease-out;
-            height: 0;
+            transition: all 0.2s ease-out;
+            flex: 0;
+            opacity: 0;
+            backface-visibility: hidden;
           }
         }
 
         &.expanded {
+          flex-grow: 1;
+
+          nb-accordion-item-header {
+            padding: 0 var(--accordion-padding) !important;
+          }
+
           nb-accordion-item-body {
-            height: 15rem;
-            transition: height 0.2s ease-out;
+            transition: all 0.2s ease-in;
+
+            overflow-y: scroll;
+            flex: 1;
+            opacity: 1;
+            backface-visibility: hidden;
+
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+
+            &::-webkit-scrollbar {
+              display: none;
+            }
           }
         }
       }
     }
   }
-}
-
-app-todo-work,
-app-pending-work {
-  padding: var(--accordion-padding);
-  display: block;
 }
