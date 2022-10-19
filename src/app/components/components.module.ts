@@ -10,10 +10,17 @@ import {
   NbSidebarModule,
 } from '@nebular/theme';
 import { MenuSidebarComponent } from './menu-sidebar/menu-sidebar.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [HeaderComponent, SidebarComponent, MenuSidebarComponent],
-  imports: [CommonModule, NbSidebarModule, NbIconModule, NbAccordionModule],
+  imports: [
+    CommonModule,
+    NbSidebarModule,
+    NbIconModule,
+    NbAccordionModule,
+    RouterModule,
+  ],
   exports: [HeaderComponent, SidebarComponent, MenuSidebarComponent],
 })
 export class ComponentsModule {}

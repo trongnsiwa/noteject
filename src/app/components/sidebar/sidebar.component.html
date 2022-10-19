@@ -1,27 +1,71 @@
 <div class="sidebar">
-  <div class="sidebar-item">
+  <a
+    routerLink="/calendar"
+    routerLinkActive="active"
+    #rla="routerLinkActive"
+    class="sidebar-item"
+  >
     <div class="center">
+      <nb-icon
+        nbPrefix
+        icon="calendar"
+        pack="eva"
+        class="icon"
+        *ngIf="rla.isActive"
+      ></nb-icon>
       <nb-icon
         nbPrefix
         icon="calendar-outline"
         pack="eva"
         class="icon"
+        *ngIf="!rla.isActive"
       ></nb-icon>
     </div>
-  </div>
-  <div class="sidebar-item">
+  </a>
+  <a
+    routerLink="/board"
+    routerLinkActive="active"
+    #rla="routerLinkActive"
+    class="sidebar-item"
+  >
     <div class="center">
-      <nb-icon nbPrefix icon="map-outline" pack="eva" class="icon"></nb-icon>
+      <nb-icon
+        nbPrefix
+        icon="map"
+        pack="eva"
+        class="icon"
+        *ngIf="rla.isActive"
+      ></nb-icon>
+      <nb-icon
+        nbPrefix
+        icon="map-outline"
+        pack="eva"
+        class="icon"
+        *ngIf="!rla.isActive"
+      ></nb-icon>
     </div>
-  </div>
-  <div class="sidebar-item">
+  </a>
+  <a
+    routerLink="/note"
+    routerLinkActive="active"
+    #rla="routerLinkActive"
+    class="sidebar-item"
+  >
     <div class="center">
+      <nb-icon
+        nbPrefix
+        icon="book-open"
+        pack="eva"
+        class="icon"
+        *ngIf="rla.isActive"
+      ></nb-icon>
       <nb-icon
         nbPrefix
         icon="book-open-outline"
         pack="eva"
         class="icon"
+        *ngIf="!rla.isActive"
       ></nb-icon>
     </div>
-  </div>
+  </a>
 </div>

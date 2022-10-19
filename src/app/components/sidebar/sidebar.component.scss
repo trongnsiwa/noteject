@@ -1,3 +1,14 @@
+@mixin activeItem($isActive) {
+  @if $isActive {
+    background-color: var(--color-app4);
+    cursor: pointer;
+
+    .icon {
+      color: var(--color-app2);
+    }
+  }
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -13,13 +24,12 @@
       color: var(--color-app4);
     }
 
-    &:hover {
-      background-color: var(--color-app4);
-      cursor: pointer;
+    &.active {
+      @include activeItem(true);
+    }
 
-      .icon {
-        color: var(--color-app2);
-      }
+    &:hover {
+      @include activeItem(true);
     }
   }
 }

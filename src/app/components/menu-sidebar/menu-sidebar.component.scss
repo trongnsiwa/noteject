@@ -39,6 +39,8 @@
     flex-direction: column;
 
     nb-accordion-item {
+      border-top: 1px solid var(--color-app4);
+
       &.collapsed {
         nb-accordion-item-body {
           transition: all 0.2s ease-in;
@@ -47,6 +49,13 @@
       }
 
       &.expanded {
+        nb-accordion-item-body {
+          transition: all 0.2s ease-out;
+          margin-bottom: 100%;
+        }
+      }
+
+      &.expanded ~ .expanded {
         nb-accordion-item-body {
           transition: all 0.2s ease-out;
           margin-bottom: 80%;
