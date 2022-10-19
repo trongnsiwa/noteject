@@ -5,17 +5,20 @@
   height: 100%;
 
   &-start {
-    height: 50%;
+    height: 40%;
+    position: relative;
+    overflow: hidden;
 
     &-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: var(--accordion-padding);
+      padding: 0 var(--accordion-padding);
       font-size: var(--accordion-header-text-font-size);
       font-weight: var(--accordion-header-text-font-weight);
       line-height: var(--accordion-header-text-line-height);
       color: white;
+      height: 64px;
     }
 
     .icon {
@@ -30,37 +33,66 @@
         cursor: pointer;
       }
     }
+
+    &-body {
+      position: absolute;
+      top: 64px;
+      bottom: 0;
+      overflow-y: scroll;
+      width: 100%;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
   }
 
   &-end {
-    height: 50%;
     display: flex;
     justify-content: end;
     flex-direction: column;
+    height: 60%;
 
-    nb-accordion-item {
-      border-top: 1px solid var(--color-app4);
+    nb-accordion {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
 
-      &.collapsed {
-        nb-accordion-item-body {
-          transition: all 0.2s ease-in;
-          margin-bottom: 0%;
-        }
+      &:has(:last-child.collapsed) {
+        justify-content: space-between;
       }
 
-      &.expanded {
-        nb-accordion-item-body {
-          transition: all 0.2s ease-out;
-          margin-bottom: 100%;
-        }
+      &:not(:has(.expanded)) {
+        justify-content: end !important;
       }
 
-      &.expanded ~ .expanded {
-        nb-accordion-item-body {
-          transition: all 0.2s ease-out;
-          margin-bottom: 80%;
+      &-item {
+        border-top: 1px solid var(--color-app4);
+        position: relative;
+        overflow: hidden;
+
+        &.collapsed {
+          nb-accordion-item-body {
+            transition: height 0.2s ease-out;
+            height: 0;
+          }
+        }
+
+        &.expanded {
+          nb-accordion-item-body {
+            height: 15rem;
+            transition: height 0.2s ease-out;
+          }
         }
       }
     }
   }
+}
+
+app-todo-work,
+app-pending-work {
+  padding: var(--accordion-padding);
+  display: block;
 }

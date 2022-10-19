@@ -20,3 +20,19 @@
 *::after {
   box-sizing: unset;
 }
+
+nb-accordion-item-body .item-body {
+  padding: 0;
+  position: absolute;
+  top: 64px;
+  bottom: 0;
+  overflow-y: scroll;
+  width: 100%;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
