@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuSidebarComponent implements OnInit {
   pendingWorks: any[] = [
-    { id: 1, title: 'Pending Work 1' },
+    { id: 1, title: 'Pending Work 1 Pending Work 1 Pending Work 1' },
     { id: 2, title: 'Pending Work 2' },
     { id: 3, title: 'Pending Work 3' },
     { id: 3, title: 'Pending Work 3' },
@@ -28,7 +28,7 @@ export class MenuSidebarComponent implements OnInit {
     { id: 3, title: 'Pending Work 1' },
   ];
   todayWorks: any[] = [
-    { id: 1, title: 'Today Work 1' },
+    { id: 1, title: 'Today Work 1 Today Work 1 Today Work 1 Today Work 1' },
     { id: 2, title: 'Today Work 2' },
     { id: 3, title: 'Today Work 3' },
     { id: 3, title: 'Today Work 3' },

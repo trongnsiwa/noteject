@@ -46,4 +46,12 @@ nb-sidebar {
       gap: 1rem;
     }
   }
+
+  &-main {
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-gap: 1rem;
+    justify-content: center;
+  }
 }

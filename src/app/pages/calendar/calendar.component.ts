@@ -7,13 +7,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalendarComponent implements OnInit {
   days: any[] = [
-    { day: 'Monday', date: '1', month: 'January', year: '2021', works: [] },
-    { day: 'Tuesday', date: '2', month: 'January', year: '2021', works: [] },
-    { day: 'Wednesday', date: '3', month: 'January', year: '2021', works: [] },
-    { day: 'Thursday', date: '4', month: 'January', year: '2021', works: [] },
-    { day: 'Friday', date: '5', month: 'January', year: '2021', works: [] },
-    { day: 'Saturday', date: '6', month: 'January', year: '2021', works: [] },
-    { day: 'Sunday', date: '7', month: 'January', year: '2021', works: [] },
+    {
+      day: 'Monday',
+      date: '01',
+      month: '01',
+      year: '2021',
+      works: [
+        {
+          title: 'Work 1 Work 1 Work 1 Work 1 Work 1 Work 1 Work 1 Work 1',
+          isDone: false,
+        },
+        { title: 'Work 2', isDone: false },
+        { title: 'Work 3', isDone: true },
+      ],
+    },
+    { day: 'Tuesday', date: '02', month: '01', year: '2021', works: [] },
+    { day: 'Wednesday', date: '03', month: '01', year: '2021', works: [] },
+    { day: 'Thursday', date: '04', month: '01', year: '2021', works: [] },
+    { day: 'Friday', date: '05', month: '01', year: '2021', works: [] },
+    { day: 'Saturday', date: '06', month: '01', year: '2021', works: [] },
+    { day: 'Sunday', date: '07', month: '01', year: '2021', works: [] },
   ];
 
   constructor() {}

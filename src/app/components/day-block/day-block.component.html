@@ -1,1 +1,21 @@
-<p>day-block works!</p>
+<div class="day">
+  <div class="day-header">
+    <div class="day-header-week">{{ day.day }}</div>
+
+    <div class="day-header-date">
+      {{ day.date + "/" + day.month + "/" + day.year }}
+    </div>
+  </div>
+  <div class="day-column">
+    <div class="day-column-items" *ngFor="let work of day.works">
+      <div class="day-column-item">
+        <nb-checkbox
+          status="primary"
+          [ngClass]="work.isDone ? 'done' : ''"
+          [checked]="work.isDone"
+          >{{ work.title }}</nb-checkbox
+        >
+      </div>
+    </div>
+  </div>
+</div>

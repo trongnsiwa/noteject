@@ -18,6 +18,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    width: 90%;
 
     file-icon {
       height: 18px;
@@ -27,6 +28,11 @@
     &-title {
       font-size: 12px;
       color: inherit;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: inline-block;
+      white-space: nowrap;
+      max-width: 80%;
     }
   }
 

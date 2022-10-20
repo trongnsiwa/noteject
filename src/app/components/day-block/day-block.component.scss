@@ -1,0 +1,35 @@
+.day {
+  &-header {
+    display: flex;
+    gap: 0.2rem;
+    flex-direction: column;
+    margin-bottom: 0.2rem;
+
+    &-week {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    &-date {
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+
+  &-column {
+    height: 25rem;
+    background-color: var(--color-app2);
+    border: 10px solid var(--color-app4);
+
+    &-items {
+      width: 100%;
+      height: 50px;
+      border-bottom: 2px solid var(--color-app4);
+      background-color: var(--color-app3);
+    }
+
+    &-item {
+      padding: 0.7rem var(--accordion-padding);
+    }
+  }
+}
