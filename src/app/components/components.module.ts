@@ -9,6 +9,7 @@ import {
   NbMenuItemComponent,
   NbMenuModule,
   NbSidebarModule,
+  NbUserModule,
 } from '@nebular/theme';
 import { MenuSidebarComponent } from './menu-sidebar/menu-sidebar.component';
 import { RouterModule } from '@angular/router';
@@ -30,6 +31,7 @@ import { TodoWorkComponent } from './menu-sidebar/todo-work/todo-work.component'
     NbAccordionModule,
     RouterModule,
     NbCheckboxModule,
+    NbUserModule,
   ],
   exports: [HeaderComponent, SidebarComponent, MenuSidebarComponent],
 })

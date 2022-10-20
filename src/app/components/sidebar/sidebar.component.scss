@@ -12,24 +12,50 @@
 .sidebar {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 
-  &-item {
-    width: 70px;
-    height: 70px;
-    position: relative;
+  .icon {
+    width: 35px;
+    height: 35px;
+    color: var(--color-app4);
+  }
+
+  &-start {
+    display: flex;
+    flex-direction: column;
+
+    &-item {
+      width: 70px;
+      height: 70px;
+      position: relative;
+
+      &.active {
+        @include activeItem(true);
+      }
+
+      &:hover {
+        @include activeItem(true);
+      }
+    }
+  }
+
+  &-end {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    nb-user:hover {
+      opacity: 0.8;
+    }
 
     .icon {
-      width: 35px;
-      height: 35px;
-      color: var(--color-app4);
-    }
+      margin: 1.5rem 0;
 
-    &.active {
-      @include activeItem(true);
-    }
-
-    &:hover {
-      @include activeItem(true);
+      &:hover {
+        color: var(--color-app2);
+      }
     }
   }
 }

@@ -1,21 +1,23 @@
 <div class="menu-sidebar">
   <div class="menu-sidebar-start">
-    <div class="menu-sidebar-start-header">
-      Your works
-      <div class="icon">
-        <nb-icon
-          nbPrefix
-          icon="plus-outline"
-          pack="eva"
-          class="center"
-        ></nb-icon>
+    <div class="menu-sidebar-start-in">
+      <div class="menu-sidebar-start-in-header">
+        Your works
+        <div class="icon">
+          <nb-icon
+            nbPrefix
+            icon="plus-outline"
+            pack="eva"
+            class="center"
+          ></nb-icon>
+        </div>
       </div>
-    </div>
-    <div class="menu-sidebar-start-body">
-      <app-pending-work
-        *ngFor="let work of pendingWorks"
-        [pendingWork]="work"
-      ></app-pending-work>
+      <div class="menu-sidebar-start-in-body">
+        <app-pending-work
+          *ngFor="let work of pendingWorks"
+          [pendingWork]="work"
+        ></app-pending-work>
+      </div>
     </div>
   </div>
   <div class="menu-sidebar-end">
