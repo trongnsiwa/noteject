@@ -15,6 +15,7 @@ import { MenuSidebarComponent } from './menu-sidebar/menu-sidebar.component';
 import { RouterModule } from '@angular/router';
 import { PendingWorkComponent } from './menu-sidebar/pending-work/pending-work.component';
 import { TodoWorkComponent } from './menu-sidebar/todo-work/todo-work.component';
+import { DayBlockComponent } from './day-block/day-block.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TodoWorkComponent } from './menu-sidebar/todo-work/todo-work.component'
     MenuSidebarComponent,
     PendingWorkComponent,
     TodoWorkComponent,
+    DayBlockComponent,
   ],
   imports: [
     CommonModule,
@@ -33,6 +35,11 @@ import { TodoWorkComponent } from './menu-sidebar/todo-work/todo-work.component'
     NbCheckboxModule,
     NbUserModule,
   ],
-  exports: [HeaderComponent, SidebarComponent, MenuSidebarComponent],
+  exports: [
+    HeaderComponent,
+    SidebarComponent,
+    MenuSidebarComponent,
+    DayBlockComponent,
+  ],
 })
 export class ComponentsModule {}
