@@ -7,8 +7,8 @@
     <div class="calendar-body">
       <div class="calendar-body-header">
         <div class="calendar-body-header-title">
-          <h2>Week 3 | October, 2022</h2>
-          <h4>Today is Monday!!</h4>
+          <h2>Week {{ current.week }} | {{ current.monthAndYear }}</h2>
+          <h4>Today is {{ current.dayOfWeek }}!!</h4>
           <div class="calendar-body-header-title-line"></div>
         </div>
         <div class="calendar-body-header-actions">
@@ -18,6 +18,7 @@
             shape="semi-round"
             size="giant"
             class="calendar-body-header-actions-btn"
+            (click)="prevWeek()"
           >
             <nb-icon icon="arrow-left-outline"></nb-icon>
           </button>
@@ -27,6 +28,7 @@
             shape="semi-round"
             size="giant"
             class="calendar-body-header-actions-btn"
+            (click)="nextWeek()"
           >
             <nb-icon icon="arrow-right-outline"></nb-icon>
           </button>
@@ -34,7 +36,7 @@
       </div>
 
       <div class="calendar-body-main">
-        <app-day-block *ngFor="let day of days" [day]="day"></app-day-block>
+        <app-day-block *ngFor="let day of week" [day]="day"></app-day-block>
       </div>
     </div>
   </nb-layout-column>

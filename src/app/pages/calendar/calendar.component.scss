@@ -7,11 +7,12 @@ nb-sidebar {
     display: flex;
     justify-content: space-between;
     background-color: var(--color-app1);
-    padding: 3rem 3rem 1rem 3rem;
+    padding: 2rem 3rem 1rem 3rem;
 
     &-title {
       display: flex;
       flex-direction: column;
+      gap: 0.5rem;
 
       h2,
       h4 {
@@ -24,12 +25,14 @@ nb-sidebar {
       h2 {
         font-size: 24px;
         font-weight: 800;
+        line-height: 1.2;
         color: var(--color-dark);
       }
 
       h4 {
         font-size: 18px;
         font-weight: 600;
+        line-height: 1.2;
         color: var(--color-app4);
       }
 
@@ -51,7 +54,7 @@ nb-sidebar {
     padding: 3rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    grid-gap: 1rem;
+    grid-gap: 1.5rem;
     justify-content: center;
   }
 }

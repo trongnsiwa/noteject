@@ -1,12 +1,15 @@
 <div class="day">
-  <div class="day-header">
-    <div class="day-header-week">{{ day.day }}</div>
+  <div class="day-header" [ngClass]="day.isCurrentDate ? 'current' : ''">
+    <div class="day-header-week">{{ day.dayOfWeek }}</div>
 
     <div class="day-header-date">
-      {{ day.date + "/" + day.month + "/" + day.year }}
+      {{ day.date }}
     </div>
   </div>
   <div class="day-column">
+    <div class="day-column-add" [ngClass]="'hidden'">
+      <nb-icon nbPrefix icon="plus-outline" pack="eva" class="center"></nb-icon>
+    </div>
     <div class="day-column-items" *ngFor="let work of day.works">
       <div class="day-column-item">
         <nb-checkbox
