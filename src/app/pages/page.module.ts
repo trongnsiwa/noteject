@@ -8,6 +8,7 @@ import {
   NbButtonModule,
 } from '@nebular/theme';
 import { ComponentsModule } from '../components/components.module';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [CalendarComponent],
@@ -18,6 +19,7 @@ import { ComponentsModule } from '../components/components.module';
     NbIconModule,
     ComponentsModule,
     NbButtonModule,
+    DragDropModule,
   ],
   exports: [CalendarComponent],
 })

@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router';
 import { PendingWorkComponent } from './menu-sidebar/pending-work/pending-work.component';
 import { TodoWorkComponent } from './menu-sidebar/todo-work/todo-work.component';
 import { DayBlockComponent } from './day-block/day-block.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { DayBlockComponent } from './day-block/day-block.component';
     RouterModule,
     NbCheckboxModule,
     NbUserModule,
+    DragDropModule,
   ],
   exports: [
     HeaderComponent,

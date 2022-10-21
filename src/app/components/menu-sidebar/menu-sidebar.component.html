@@ -12,10 +12,18 @@
           ></nb-icon>
         </div>
       </div>
-      <div class="menu-sidebar-start-in-body">
+      <div
+        class="menu-sidebar-start-in-body"
+        id="pending"
+        cdkDropList
+        [cdkDropListData]="pendingWorks"
+        [cdkDropListConnectedTo]="dayIds"
+        (cdkDropListDropped)="drop($event)"
+      >
         <app-pending-work
           *ngFor="let work of pendingWorks"
           [pendingWork]="work"
+          cdkDrag
         ></app-pending-work>
       </div>
     </div>

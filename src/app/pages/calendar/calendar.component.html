@@ -36,7 +36,15 @@
       </div>
 
       <div class="calendar-body-main">
-        <app-day-block *ngFor="let day of week" [day]="day"></app-day-block>
+        <app-day-block
+          *ngFor="let day of week; let i = index"
+          [day]="day"
+          [id]="'day' + i + 1"
+          cdkDropList
+          [cdkDropListData]="day.works"
+          cdkDropListConnectedTo="pending"
+          (cdkDropListDropped)="drop($event)"
+        ></app-day-block>
       </div>
     </div>
   </nb-layout-column>

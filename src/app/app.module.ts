@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentsModule } from './components/components.module';
 import { PageModule } from './pages/page.module';
 import { NbMenuModule } from '@nebular/theme';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,6 +38,7 @@ import { NbMenuModule } from '@nebular/theme';
     HttpClientModule,
     ComponentsModule,
     PageModule,
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

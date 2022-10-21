@@ -10,7 +10,7 @@
     <div class="day-column-add" [ngClass]="'hidden'">
       <nb-icon nbPrefix icon="plus-outline" pack="eva" class="center"></nb-icon>
     </div>
-    <div class="day-column-items" *ngFor="let work of day.works">
+    <div class="day-column-items" *ngFor="let work of day.works" cdkDrag>
       <div class="day-column-item">
         <nb-checkbox
           status="primary"
