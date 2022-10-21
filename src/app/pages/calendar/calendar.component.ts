@@ -1,4 +1,3 @@
-import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import {
   format,
@@ -9,7 +8,6 @@ import {
   nextSunday,
   previousSunday,
 } from 'date-fns';
-import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-calendar',
@@ -35,14 +33,10 @@ export class CalendarComponent implements OnInit {
     isCurrentDate: boolean;
   }[] = [];
 
-  constructor(private sharedService: SharedService) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.generateWeek();
-  }
-
-  drop(event: CdkDragDrop<string[]>) {
-    this.sharedService.dropped(event);
   }
 
   generateWeek() {

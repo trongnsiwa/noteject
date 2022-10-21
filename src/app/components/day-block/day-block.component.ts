@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'app-day-block',
@@ -7,8 +9,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DayBlockComponent implements OnInit {
   @Input() day: any;
+  @Input() dayId: any;
 
-  constructor() {}
+  constructor(private sharedService: SharedService) {}
 
   ngOnInit(): void {}
+
+  drop(event: CdkDragDrop<string[]>) {
+    this.sharedService.dropped(event);
+  }
 }

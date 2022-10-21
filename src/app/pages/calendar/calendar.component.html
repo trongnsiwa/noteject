@@ -39,11 +39,7 @@
         <app-day-block
           *ngFor="let day of week; let i = index"
           [day]="day"
-          [id]="'day' + i + 1"
-          cdkDropList
-          [cdkDropListData]="day.works"
-          cdkDropListConnectedTo="pending"
-          (cdkDropListDropped)="drop($event)"
+          [dayId]="'day' + i + 1"
         ></app-day-block>
       </div>
     </div>
