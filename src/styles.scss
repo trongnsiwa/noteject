@@ -15,12 +15,6 @@
   transform: translate(-50%, -50%);
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: unset;
-}
-
 nb-accordion-item-body .item-body {
   padding: 0;
 }
@@ -55,4 +49,8 @@ nb-checkbox {
     white-space: nowrap;
     max-width: 80%;
   }
+}
+
+textarea {
+  resize: none;
 }

@@ -6,6 +6,7 @@ import {
   NbAccordionModule,
   NbCheckboxModule,
   NbIconModule,
+  NbInputModule,
   NbMenuItemComponent,
   NbMenuModule,
   NbSidebarModule,
@@ -36,6 +37,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     NbCheckboxModule,
     NbUserModule,
     DragDropModule,
+    NbInputModule,
   ],
   exports: [
     HeaderComponent,

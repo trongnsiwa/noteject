@@ -1,12 +1,37 @@
-<div class="pending">
+<div class="pending" (dragstart)="onDragStart($event)">
   <div class="pending-left">
     <nb-icon
       nbPrefix
-      icon="file-outline"
+      icon="file-text-outline"
       pack="eva"
       class="file-icon"
+      *ngIf="!edited"
     ></nb-icon>
-    <p class="pending-left-title">{{ pendingWork.title }}</p>
+    <nb-icon
+      nbPrefix
+      icon="file-text"
+      pack="eva"
+      class="file-icon"
+      *ngIf="edited"
+    ></nb-icon>
+    <p
+      class="pending-left-title"
+      [ngClass]="edited ? 'hidden' : ''"
+      (dblclick)="showInput()"
+    >
+      {{ pendingWork.title }}
+    </p>
+    <textarea
+      nbInput
+      fullWidth
+      status="basic"
+      fieldSize="tiny"
+      class="pending-left-input"
+      [hidden]="!edited"
+      [defaultValue]="pendingWork.title"
+      cols="3"
+      (mousedown)="$event.stopPropagation()"
+    ></textarea>
   </div>
   <div class="pending-right">
     <nb-icon
@@ -14,6 +39,15 @@
       icon="trash-2-outline"
       pack="eva"
       class="trash-icon"
+      [ngClass]="edited ? 'hidden' : ''"
+    ></nb-icon>
+    <nb-icon
+      nbPrefix
+      icon="close-outline"
+      pack="eva"
+      class="trash-icon"
+      [ngClass]="!edited ? 'hidden' : ''"
+      (click)="closeInput()"
     ></nb-icon>
   </div>
 </div>

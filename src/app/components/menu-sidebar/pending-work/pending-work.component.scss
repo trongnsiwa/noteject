@@ -35,6 +35,12 @@
       white-space: nowrap;
       max-width: 80%;
     }
+
+    &-input {
+      border-radius: 5px;
+      margin: 0.7rem 0;
+      max-width: 80%;
+    }
   }
 
   &-right {
@@ -45,4 +51,8 @@
       opacity: 0;
     }
   }
+}
+
+.hidden {
+  display: none;
 }

@@ -7,8 +7,21 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PendingWorkComponent implements OnInit {
   @Input() pendingWork: any;
+  edited: boolean = false;
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  showInput() {
+    this.edited = true;
+  }
+
+  closeInput() {
+    this.edited = false;
+  }
+
+  onDragStart(event: DragEvent) {
+    this.edited = false;
+  }
 }
