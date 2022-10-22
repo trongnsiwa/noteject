@@ -17,6 +17,7 @@ import { PendingWorkComponent } from './menu-sidebar/pending-work/pending-work.c
 import { TodoWorkComponent } from './menu-sidebar/todo-work/todo-work.component';
 import { DayBlockComponent } from './day-block/day-block.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     DragDropModule,
     NbInputModule,
     NbButtonModule,
+    ReactiveFormsModule,
   ],
   exports: [
     HeaderComponent,

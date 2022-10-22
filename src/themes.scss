@@ -117,7 +117,12 @@ $nb-themes: nb-register-theme(
 
     // input
     input-basic-focus-background-color: color-app2,
-    text-caption-2-font-weight: 400
+    text-caption-2-font-weight: 400,
+
+    // toast
+    toastr-text-font-size: 0.9375rem,
+    toastr-text-font-weight: 600,
+    color-danger-default: color-danger-400
   ),
   note,
   corporate

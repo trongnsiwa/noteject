@@ -12,7 +12,12 @@
           ></nb-icon>
         </div>
       </div>
-      <div class="menu-sidebar-start-in-add" *ngIf="added">
+      <form
+        [formGroup]="workForm"
+        (ngSubmit)="addWork()"
+        class="menu-sidebar-start-in-add"
+        *ngIf="added"
+      >
         <textarea
           nbInput
           fullWidth
@@ -20,7 +25,10 @@
           fieldSize="tiny"
           class="input"
           cols="3"
+          id="title"
+          formControlName="title"
           (mousedown)="$event.stopPropagation()"
+          [class.invalid]="title?.invalid && (title?.dirty || title?.touched)"
           autofocus
           cdkFocusInitial
         ></textarea>
@@ -28,11 +36,17 @@
           <button nbButton size="tiny" class="cancelBtn" (click)="toggleAdd()">
             Cancel
           </button>
-          <button nbButton size="tiny" status="primary" class="addBtn">
+          <button
+            nbButton
+            size="tiny"
+            status="primary"
+            class="addBtn"
+            type="submit"
+          >
             Add work
           </button>
         </div>
-      </div>
+      </form>
       <div
         class="menu-sidebar-start-in-body"
         id="pending"

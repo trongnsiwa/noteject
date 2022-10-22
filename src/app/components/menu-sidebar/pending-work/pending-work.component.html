@@ -1,5 +1,5 @@
 <div class="pending" (dragstart)="onDragStart($event)">
-  <div class="pending-left">
+  <form [formGroup]="workForm" (ngSubmit)="editWork()" class="pending-left">
     <nb-icon
       nbPrefix
       icon="file-text-outline"
@@ -31,8 +31,14 @@
       [defaultValue]="pendingWork.title"
       cols="3"
       (mousedown)="$event.stopPropagation()"
+      id="editedTitle"
+      formControlName="editedTitle"
+      (mousedown)="$event.stopPropagation()"
+      [class.invalid]="
+        editedTitle?.invalid && (editedTitle?.dirty || editedTitle?.touched)
+      "
     ></textarea>
-  </div>
+  </form>
   <div class="pending-right">
     <nb-icon
       nbPrefix

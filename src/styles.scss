@@ -54,3 +54,7 @@ nb-checkbox {
 textarea {
   resize: none;
 }
+
+.invalid {
+  border: 1px solid var(--color-danger-default) !important;
+}
