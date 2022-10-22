@@ -7,10 +7,9 @@ import {
   NbCheckboxModule,
   NbIconModule,
   NbInputModule,
-  NbMenuItemComponent,
-  NbMenuModule,
   NbSidebarModule,
   NbUserModule,
+  NbButtonModule,
 } from '@nebular/theme';
 import { MenuSidebarComponent } from './menu-sidebar/menu-sidebar.component';
 import { RouterModule } from '@angular/router';
@@ -38,6 +37,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     NbUserModule,
     DragDropModule,
     NbInputModule,
+    NbButtonModule,
   ],
   exports: [
     HeaderComponent,

@@ -41,6 +41,44 @@
         }
       }
 
+      &-add {
+        padding: 0 var(--accordion-padding);
+
+        .input {
+          background: transparent;
+          border-radius: 5px;
+        }
+
+        .actions {
+          display: flex;
+          justify-content: flex-end;
+          gap: 0.5rem;
+          padding: 0.3rem 0 0.5rem 0;
+
+          .cancelBtn {
+            border: none;
+            text-transform: unset;
+            padding: 0rem 0.5rem;
+            background-color: var(--color-app2);
+
+            &:hover {
+              scale: 0.95;
+            }
+          }
+
+          .addBtn {
+            border: none;
+            text-transform: unset;
+            color: white;
+            padding: 0.4rem 0.7rem;
+
+            &:hover {
+              scale: 0.95;
+            }
+          }
+        }
+      }
+
       &-body {
         overflow-y: scroll;
         flex: 1;

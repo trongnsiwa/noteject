@@ -3,13 +3,34 @@
     <div class="menu-sidebar-start-in">
       <div class="menu-sidebar-start-in-header">
         Your works
-        <div class="icon">
+        <div class="icon" (click)="toggleAdd()">
           <nb-icon
             nbPrefix
             icon="plus-outline"
             pack="eva"
             class="center"
           ></nb-icon>
+        </div>
+      </div>
+      <div class="menu-sidebar-start-in-add" *ngIf="added">
+        <textarea
+          nbInput
+          fullWidth
+          status="basic"
+          fieldSize="tiny"
+          class="input"
+          cols="3"
+          (mousedown)="$event.stopPropagation()"
+          autofocus
+          cdkFocusInitial
+        ></textarea>
+        <div class="actions">
+          <button nbButton size="tiny" class="cancelBtn" (click)="toggleAdd()">
+            Cancel
+          </button>
+          <button nbButton size="tiny" status="primary" class="addBtn">
+            Add work
+          </button>
         </div>
       </div>
       <div

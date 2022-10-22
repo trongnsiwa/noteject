@@ -8,6 +8,7 @@ import { SharedService } from '../../services/shared.service';
   styleUrls: ['./menu-sidebar.component.scss'],
 })
 export class MenuSidebarComponent implements OnInit {
+  added: boolean = false;
   dayIds: string[] = ['day1', 'day2', 'day3', 'day4', 'day5', 'day6', 'day7'];
 
   pendingWorks: any[] = [
@@ -63,6 +64,10 @@ export class MenuSidebarComponent implements OnInit {
 
   drop(event: CdkDragDrop<string[]>) {
     this.sharedService.dropped(event);
+  }
+
+  toggleAdd() {
+    this.added = !this.added;
   }
 
   ngOnInit(): void {}
