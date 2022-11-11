@@ -6,21 +6,17 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   NbThemeModule,
-  NbLayoutModule,
-  NbButtonModule,
-  NbSidebarModule,
   NbToastrModule,
   NbToastrConfig,
   NbGlobalLogicalPosition,
 } from '@nebular/theme';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { StoreModule } from '@ngrx/store';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ComponentsModule } from './components/components.module';
-import { PageModule } from './pages/page.module';
-import { NbMenuModule } from '@nebular/theme';
-import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CoreModule } from './core/core.module';
+import { DashboardModule } from './dashboard';
+import { NbMenuModule, NbSidebarModule } from '@nebular/theme';
+import { AuthModule } from './auth';
 
 const config: Partial<NbToastrConfig> | undefined = {
   hasIcon: false,
@@ -39,20 +35,17 @@ const config: Partial<NbToastrConfig> | undefined = {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    DashboardModule,
+    AuthModule,
     BrowserAnimationsModule,
     NbThemeModule.forRoot({ name: 'note' }),
-    NbLayoutModule,
-    NbButtonModule,
-    NbEvaIconsModule,
-    NbMenuModule.forRoot(),
-    NbSidebarModule.forRoot(),
     StoreModule.forRoot({}, {}),
     GraphQLModule,
     HttpClientModule,
-    ComponentsModule,
-    PageModule,
-    DragDropModule,
     NbToastrModule.forRoot(config),
+    CoreModule,
+    NbMenuModule.forRoot(),
+    NbSidebarModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,6 +1,6 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { SharedService } from '../../../services/shared.service';
+import { SharedService } from '../../../../core/services/shared.service';
 
 @Component({
   selector: 'app-pending-work',

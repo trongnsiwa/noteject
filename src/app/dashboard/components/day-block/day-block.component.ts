@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
-import { SharedService } from '../../services/shared.service';
+import { SharedService } from '../../../core/services/shared.service';
 
 @Component({
   selector: 'app-day-block',

@@ -5,6 +5,17 @@
 
 $nb-enable-css-custom-properties: true;
 
+:root {
+  // app color
+  --color-reset: #acacac;
+  --color-dark: #383838;
+
+  --color-app1: #ebe5e3;
+  --color-app2: #d2dfcc;
+  --color-app3: #b5a497;
+  --color-app4: #8d8579;
+}
+
 $nb-themes: nb-register-theme(
   (
     // app color

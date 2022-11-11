@@ -1,0 +1,27 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthComponent, LoginComponent } from './pages';
+import { SignupComponent } from './pages/signup/signup.component';
+
+const routes: Routes = [
+  {
+    path: 'auth',
+    component: AuthComponent,
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
+      {
+        path: 'signup',
+        component: SignupComponent,
+      },
+    ],
+  },
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
+})
+export class AuthRoutingModule {}
