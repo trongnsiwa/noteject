@@ -1,0 +1,124 @@
+.signup {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  &-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+
+    h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-app4);
+    }
+  }
+
+  &-body {
+    &-title {
+      margin: 3rem 0;
+
+      h2 {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 0;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+
+    &-form {
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .form-group {
+        label {
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 2;
+        }
+      }
+
+      .btn {
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: initial;
+        background-color: var(--color-app2);
+
+        &:hover {
+          background-color: var(--color-app5);
+        }
+      }
+
+      .error-message {
+        color: var(--color-danger-default);
+        font-size: 14px;
+        margin-top: 0.25rem;
+        font-weight: 500;
+      }
+
+      .remember-forgot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .remember {
+          flex: 1;
+          .text {
+            font-size: 16px !important;
+            font-weight: 500 !important;
+          }
+        }
+
+        .forgot {
+          a {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--color-app2);
+            text-decoration: none;
+
+            &:hover {
+              color: var(--color-app3);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-footer {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    p {
+      font-size: 14px;
+    }
+
+    a {
+      font-size: 14px;
+      color: var(--color-app2);
+      text-decoration: none;
+
+      &:hover {
+        color: var(--color-app3);
+      }
+    }
+  }
+}

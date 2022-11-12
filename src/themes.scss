@@ -14,8 +14,11 @@ $nb-themes: nb-register-theme(
 
     color-app1: #ebe5e3,
     color-app2: #d2dfcc,
+
     color-app3: #b5a497,
     color-app4: #8d8579,
+
+    color-app5: #b4c2ad,
 
     // custom color
     color-primary-100: #fbf8f2,
@@ -117,8 +120,12 @@ $nb-themes: nb-register-theme(
     color-primary-active-border: color-app2,
 
     // input
-    input-basic-focus-background-color: color-app2,
+    input-basic-background-color: white,
+    input-basic-focus-background-color: white,
     text-caption-2-font-weight: 400,
+    input-basic-border-color: color-app2,
+    input-basic-focus-border-color: color-app3,
+    border-basic-color-4: color-app3,
 
     // toast
     toastr-text-font-size: 0.9375rem,

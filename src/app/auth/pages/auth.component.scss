@@ -1,11 +1,7 @@
 .auth {
-  display: flex;
-
   &-banner {
     background-color: var(--color-app2);
-    height: 100vh;
-    padding: 0 70px;
-    width: 60%;
+    padding: 0 70px !important;
 
     &-inside {
       display: flex;
@@ -14,6 +10,8 @@
     }
 
     &-content {
+      width: 100%;
+
       &-title {
         font-size: 40px;
         font-weight: 800;
@@ -23,9 +21,12 @@
       &-subtitle {
         font-size: 24px;
         color: var(--color-dark);
+        line-height: 1.2;
       }
 
       &-image {
+        width: 100%;
+
         img {
           width: 500px;
           height: 500px;
@@ -37,7 +38,6 @@
   }
 
   &-form {
-    height: 100vh;
-    padding: 70px;
+    padding: 70px !important;
   }
 }
