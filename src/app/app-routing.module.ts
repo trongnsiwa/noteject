@@ -9,11 +9,6 @@ const routes: Routes = [
     redirectTo: '/calendar',
     pathMatch: 'full',
   },
-  {
-    path: 'auth',
-    redirectTo: 'auth/login',
-    pathMatch: 'full',
-  },
 ];
 
 @NgModule({

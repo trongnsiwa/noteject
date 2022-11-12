@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { HeaderComponent, SidebarComponent } from './layout';
 import {
   NbAccordionModule,
   NbButtonModule,
   NbCheckboxModule,
   NbIconModule,
+  NbInputModule,
   NbLayoutModule,
   NbSidebarModule,
   NbUserModule,
@@ -16,18 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [HeaderComponent, SidebarComponent],
-  imports: [
-    CommonModule,
-    NbLayoutModule,
-    RouterModule,
-    NbSidebarModule,
-    NbButtonModule,
-    NbEvaIconsModule,
-    NbIconModule,
-    DragDropModule,
-    NbUserModule,
-  ],
+  declarations: [],
+  imports: [CommonModule],
   exports: [
     CommonModule,
     RouterModule,
@@ -37,12 +27,12 @@ import { RouterModule } from '@angular/router';
     NbEvaIconsModule,
     NbIconModule,
     DragDropModule,
-    HeaderComponent,
-    SidebarComponent,
     NbCheckboxModule,
     NbAccordionModule,
     FormsModule,
     ReactiveFormsModule,
+    NbUserModule,
+    NbInputModule,
   ],
 })
 export class SharedModule {}

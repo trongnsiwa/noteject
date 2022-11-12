@@ -2,19 +2,9 @@
 @use "@nebular/theme/styles/theming" as *;
 @use "@nebular/theme/styles/themes/corporate";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700;800&display=swap");
 
 $nb-enable-css-custom-properties: true;
-
-:root {
-  // app color
-  --color-reset: #acacac;
-  --color-dark: #383838;
-
-  --color-app1: #ebe5e3;
-  --color-app2: #d2dfcc;
-  --color-app3: #b5a497;
-  --color-app4: #8d8579;
-}
 
 $nb-themes: nb-register-theme(
   (
@@ -82,8 +72,8 @@ $nb-themes: nb-register-theme(
     text-disabled-color: color-basic-600,
 
     // custom font
-    font-family-primary: "'Inter', sans-serif",
-    font-family-secondary: "'Inter', sans-serif",
+    font-family-primary: "'Work Sans', sans-serif",
+    font-family-secondary: "'Work Sans', sans-serif",
 
     // layout header
     header-height: 50px,

@@ -4,11 +4,15 @@ import { SharedModule } from '../shared';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { CalendarComponent, DashboardComponent } from './pages';
 import {
-  MenuSidebarComponent,
   DayBlockComponent,
   PendingWorkComponent,
   TodoWorkComponent,
 } from './components';
+import {
+  MenuSidebarComponent,
+  SidebarComponent,
+  HeaderComponent,
+} from './layout';
 
 @NgModule({
   declarations: [
@@ -18,6 +22,8 @@ import {
     DayBlockComponent,
     PendingWorkComponent,
     TodoWorkComponent,
+    HeaderComponent,
+    SidebarComponent,
   ],
   imports: [DashboardRoutingModule, SharedModule],
 })

@@ -9,6 +9,7 @@ import {
   NbToastrModule,
   NbToastrConfig,
   NbGlobalLogicalPosition,
+  NbLayoutModule,
 } from '@nebular/theme';
 import { StoreModule } from '@ngrx/store';
 import { GraphQLModule } from './graphql.module';
@@ -38,6 +39,7 @@ const config: Partial<NbToastrConfig> | undefined = {
     DashboardModule,
     AuthModule,
     BrowserAnimationsModule,
+    NbLayoutModule,
     NbThemeModule.forRoot({ name: 'note' }),
     StoreModule.forRoot({}, {}),
     GraphQLModule,

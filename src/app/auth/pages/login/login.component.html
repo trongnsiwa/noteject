@@ -1,1 +1,82 @@
-<p>login works!</p>
+<app-auth>
+  <div class="login">
+    <div class="login-logo">
+      <img src="assets/images/logo.png" alt="logo" />
+      <h3>NoteJect</h3>
+    </div>
+    <div class="login-body">
+      <div class="login-body-title">
+        <h2>Hey, Hello 👋</h2>
+        <p>Enter the information you entered while registering</p>
+      </div>
+      <div class="login-body-form">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="form-group">
+            <label for="username">Email / Username</label>
+            <input
+              nbInput
+              fullWidth
+              shape="round"
+              fieldSize="large"
+              status="primary"
+              type="text"
+              id="username"
+              formControlName="username"
+              required
+              class="form-control"
+              [class.invalid]="
+                username?.invalid && (username?.dirty || username?.touched)
+              "
+            />
+          </div>
+          <div
+            *ngIf="username?.invalid && (username?.dirty || username?.touched)"
+            class="error-message"
+          >
+            <div *ngIf="username?.errors?.['required']">
+              Username or Email is required.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              nbInput
+              type="password"
+              id="password"
+              formControlName="password"
+              required
+              class="form-control"
+              [class.invalid]="
+                password?.invalid && (password?.dirty || password?.touched)
+              "
+            />
+          </div>
+          <div
+            *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+            class="error-message"
+          >
+            <div *ngIf="password?.errors?.['required']">
+              Password is required.
+            </div>
+          </div>
+          <div class="remember-forgot">
+            <div class="remember">
+              <nb-checkbox status="primary">Remember Me</nb-checkbox>
+            </div>
+            <div class="forgot">
+              <a href="#">Forgot Password?</a>
+            </div>
+          </div>
+          <button
+            nbButton
+            type="submit"
+            [disabled]="loginForm.invalid"
+            class="btn"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</app-auth>

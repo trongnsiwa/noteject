@@ -95,7 +95,7 @@
 
   &-end {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     flex-direction: column;
     height: 60%;
     flex: 0;
@@ -110,7 +110,7 @@
       }
 
       &:not(:has(.expanded)) {
-        justify-content: end !important;
+        justify-content: flex-end !important;
 
         nb-accordion-item-header {
           padding: 0 var(--accordion-padding) !important;
