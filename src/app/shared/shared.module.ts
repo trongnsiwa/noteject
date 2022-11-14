@@ -4,6 +4,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {
   NbAccordionModule,
+  NbAlertModule,
   NbButtonModule,
   NbCheckboxModule,
   NbIconModule,
@@ -33,6 +34,7 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     NbUserModule,
     NbInputModule,
+    NbAlertModule,
   ],
 })
 export class SharedModule {}

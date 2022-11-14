@@ -1,10 +1,11 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedService } from './services';
+import { AuthService, SharedService } from './services';
+import { httpInterceptorProviders } from './utils/http.interceptor';
 
 @NgModule({
   declarations: [],
-  providers: [SharedService],
+  providers: [SharedService, AuthService, httpInterceptorProviders],
   imports: [CommonModule],
 })
 export class CoreModule {

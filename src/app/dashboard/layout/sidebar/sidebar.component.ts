@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { RouterLinkActive } from '@angular/router';
+import { Router, RouterLinkActive } from '@angular/router';
+import { StorageService, AuthService } from 'src/app/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,7 +8,25 @@ import { RouterLinkActive } from '@angular/router';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private storageService: StorageService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
+
+  logout(): void {
+    this.authService.logout().subscribe({
+      next: (res) => {
+        console.log(res);
+        this.storageService.clean();
+
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
 }

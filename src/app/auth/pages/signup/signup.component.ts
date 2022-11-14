@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { matchValidator } from '../../../core/utils/form-validators';
+import { AuthService } from 'src/app/core';
+import { StorageService } from '../../../core/services/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -8,33 +11,42 @@ import { matchValidator } from '../../../core/utils/form-validators';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent implements OnInit {
-  signupForm!: FormGroup;
+  signupForm: FormGroup = new FormGroup({
+    username: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(20),
+    ]),
+    email: new FormControl('', [
+      Validators.required,
+      Validators.email,
+      Validators.maxLength(50),
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+      Validators.maxLength(40),
+      matchValidator('confirmPassword', true),
+    ]),
+    confirmPassword: new FormControl('', [
+      Validators.required,
+      matchValidator('password'),
+    ]),
+  });
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
 
-  constructor() {}
+  constructor(
+    private authService: AuthService,
+    private storageService: StorageService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.signupForm = new FormGroup({
-      username: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(20),
-      ]),
-      email: new FormControl('', [
-        Validators.required,
-        Validators.email,
-        Validators.maxLength(50),
-      ]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(40),
-        matchValidator('confirmPassword', true),
-      ]),
-      confirmPassword: new FormControl('', [
-        Validators.required,
-        matchValidator('password'),
-      ]),
-    });
+    if (this.storageService.isLoggedIn()) {
+      this.router.navigate(['/dashboard']);
+    }
   }
 
   get username() {
@@ -53,5 +65,21 @@ export class SignupComponent implements OnInit {
     return this.signupForm.get('confirmPassword');
   }
 
-  signup() {}
+  signup() {
+    if (this.signupForm.valid) {
+      const { username, email, password } = this.signupForm.value;
+
+      this.authService.register(username, email, password).subscribe({
+        next: (data) => {
+          console.log(data);
+          this.isSuccessful = true;
+          this.isSignUpFailed = false;
+        },
+        error: (err) => {
+          this.errorMessage = err.error.message;
+          this.isSignUpFailed = true;
+        },
+      });
+    }
+  }
 }

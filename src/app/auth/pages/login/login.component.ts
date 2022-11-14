@@ -5,7 +5,8 @@ import {
   Validators,
   AbstractControl,
 } from '@angular/forms';
-import { SharedService } from '../../../core/services/shared.service';
+import { Router } from '@angular/router';
+import { AuthService, StorageService } from 'src/app/core/services';
 
 @Component({
   selector: 'app-login',
@@ -13,15 +14,25 @@ import { SharedService } from '../../../core/services/shared.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  loginForm!: FormGroup;
+  loginForm: FormGroup = new FormGroup({
+    username: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
+  });
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
 
-  constructor() {}
+  constructor(
+    private authService: AuthService,
+    private storageService: StorageService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.loginForm = new FormGroup({
-      username: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-    });
+    if (this.storageService.isLoggedIn()) {
+      this.isLoggedIn = true;
+      this.router.navigate(['/dashboard']);
+    }
   }
 
   get username() {
@@ -32,5 +43,23 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get('password');
   }
 
-  login() {}
+  login() {
+    if (this.loginForm.valid) {
+      const { username, password } = this.loginForm.value;
+
+      this.authService.login(username, password).subscribe({
+        next: (data) => {
+          this.storageService.saveUser(data);
+
+          this.isLoginFailed = false;
+          this.isLoggedIn = true;
+          this.router.navigate(['/']);
+        },
+        error: (err) => {
+          this.errorMessage = err.error.message;
+          this.isLoginFailed = true;
+        },
+      });
+    }
+  }
 }

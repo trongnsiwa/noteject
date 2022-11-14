@@ -11,7 +11,12 @@
           <p>Enter the information you entered while registering</p>
         </div>
         <div class="login-body-form">
-          <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <form
+            *ngIf="!isLoggedIn"
+            [formGroup]="loginForm"
+            (ngSubmit)="f.form.valid && login()"
+            #f="ngForm"
+          >
             <div class="form-group">
               <label for="username">Email / Username</label>
               <input
@@ -87,7 +92,20 @@
             >
               Login
             </button>
+
+            <nb-alert
+              *ngIf="f.submitted && isLoginFailed"
+              class="alert"
+              role="alert"
+              status="danger"
+            >
+              Login failed: {{ errorMessage }}
+            </nb-alert>
           </form>
+
+          <nb-alert class="alert" status="success" *ngIf="isLoggedIn">
+            Logged successful!
+          </nb-alert>
         </div>
       </div>
     </div>

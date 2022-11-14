@@ -11,7 +11,12 @@
           <p>Enter the information you entered while registering</p>
         </div>
         <div class="signup-body-form">
-          <form [formGroup]="signupForm" (ngSubmit)="signup()">
+          <form
+            [formGroup]="signupForm"
+            (ngSubmit)="f.form.valid && signup()"
+            #f="ngForm"
+            *ngIf="!isSuccessful"
+          >
             <div class="form-group">
               <label for="username">Username</label>
               <input
@@ -166,7 +171,19 @@
             >
               Sign Up
             </button>
+
+            <nb-alert
+              class="alert"
+              status="danger"
+              *ngIf="f.submitted && isSignUpFailed"
+            >
+              Signup failed!<br />{{ errorMessage }}
+            </nb-alert>
           </form>
+
+          <nb-alert class="alert" status="success" *ngIf="isSuccessful">
+            Your registration is successful!
+          </nb-alert>
         </div>
       </div>
     </div>
