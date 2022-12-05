@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService, StorageService } from 'src/app/core/services';
+import { ErrorCode } from '../../../core/constants/error-code';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
   });
   isLoggedIn = false;
   isLoginFailed = false;
-  errorMessage = '';
+  errorMessage = 'Cannot login';
 
   constructor(
     private authService: AuthService,
@@ -53,10 +54,11 @@ export class LoginComponent implements OnInit {
 
           this.isLoginFailed = false;
           this.isLoggedIn = true;
-          this.router.navigate(['/']);
+          this.router.navigate(['/dashboard']);
         },
         error: (err) => {
-          this.errorMessage = err.error.message;
+          this.errorMessage =
+            ErrorCode[err.error.message as keyof typeof ErrorCode];
           this.isLoginFailed = true;
         },
       });

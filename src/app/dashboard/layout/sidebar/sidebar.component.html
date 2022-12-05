@@ -1,7 +1,7 @@
 <div class="sidebar">
   <div class="sidebar-start">
     <a
-      routerLink="/calendar"
+      routerLink="/dashboard/calendar"
       routerLinkActive="active"
       #rla1="routerLinkActive"
       class="sidebar-start-item"
@@ -24,7 +24,7 @@
       </div>
     </a>
     <a
-      routerLink="/board"
+      routerLink="/dashboard/board"
       routerLinkActive="active"
       #rla2="routerLinkActive"
       class="sidebar-start-item"
@@ -47,7 +47,7 @@
       </div>
     </a>
     <a
-      routerLink="/note"
+      routerLink="/dashboard/note"
       routerLinkActive="active"
       #rla3="routerLinkActive"
       class="sidebar-start-item"
@@ -73,11 +73,15 @@
   <div class="sidebar-end">
     <nb-user
       size="medium"
-      picture="https://images.unsplash.com/photo-1640951613773-54706e06851d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+      picture="https://avatars.dicebear.com/api/big-smile/{{
+        user.username
+      }}.svg"
       showName="false"
       showTitle="false"
       badgeStatus="primary"
+      color="#ebe5e3"
       onlyPicture
+      class="avatar"
     ></nb-user>
     <nb-icon
       nbPrefix

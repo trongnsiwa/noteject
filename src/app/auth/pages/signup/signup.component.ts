@@ -4,6 +4,7 @@ import { matchValidator } from '../../../core/utils/form-validators';
 import { AuthService } from 'src/app/core';
 import { StorageService } from '../../../core/services/storage.service';
 import { Router } from '@angular/router';
+import { ErrorCode } from 'src/app/core/constants/error-code';
 
 @Component({
   selector: 'app-signup',
@@ -35,7 +36,7 @@ export class SignupComponent implements OnInit {
   });
   isSuccessful = false;
   isSignUpFailed = false;
-  errorMessage = '';
+  errorMessage = 'Cannot signup';
 
   constructor(
     private authService: AuthService,
@@ -76,7 +77,8 @@ export class SignupComponent implements OnInit {
           this.isSignUpFailed = false;
         },
         error: (err) => {
-          this.errorMessage = err.error.message;
+          this.errorMessage =
+            ErrorCode[err.error.message as keyof typeof ErrorCode];
           this.isSignUpFailed = true;
         },
       });

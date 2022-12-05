@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpBackend, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -14,7 +14,11 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  private httpClient: HttpClient;
+
+  constructor(private http: HttpClient, private handler: HttpBackend) {
+    this.httpClient = new HttpClient(handler);
+  }
 
   login(username: string, password: string): Observable<any> {
     return this.http.post(

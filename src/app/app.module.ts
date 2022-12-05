@@ -12,7 +12,6 @@ import {
   NbLayoutModule,
 } from '@nebular/theme';
 import { StoreModule } from '@ngrx/store';
-import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { DashboardModule } from './dashboard';
@@ -42,7 +41,6 @@ const config: Partial<NbToastrConfig> | undefined = {
     NbLayoutModule,
     NbThemeModule.forRoot({ name: 'note' }),
     StoreModule.forRoot({}, {}),
-    GraphQLModule,
     HttpClientModule,
     NbToastrModule.forRoot(config),
     CoreModule,

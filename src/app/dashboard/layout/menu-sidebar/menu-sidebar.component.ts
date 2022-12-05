@@ -1,7 +1,7 @@
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { SharedService } from '../../../core/services/shared.service';
+import { SharedService, CalendarService } from 'src/app/core';
 
 @Component({
   selector: 'app-menu-sidebar',
@@ -17,7 +17,10 @@ export class MenuSidebarComponent implements OnInit {
   todayWorks: any[] = [];
   savedWorks: any[] = [];
 
-  constructor(private sharedService: SharedService) {}
+  constructor(
+    private sharedService: SharedService,
+    private calendarService: CalendarService
+  ) {}
 
   ngOnInit(): void {
     this.workForm = new FormGroup({
@@ -44,7 +47,16 @@ export class MenuSidebarComponent implements OnInit {
 
   addWork() {
     if (this.workForm.valid) {
-      this.sharedService.showToast('Add work successfully', 'success');
+      this.calendarService.addWork(this.workForm.value.title).subscribe({
+        next: ({ data }: any) => {
+          this.pendingWorks.push(data.data);
+          this.sharedService.showToast(data.successCode, 'danger');
+          this.workForm.reset();
+        },
+        error: (error) => {
+          this.sharedService.showToast(error, 'danger');
+        },
+      });
     } else {
       if (this.title?.touched) {
         if (this.title?.hasError('required')) {

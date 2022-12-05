@@ -60,6 +60,9 @@
           [pendingWork]="work"
           cdkDrag
         ></app-pending-work>
+        <p *ngIf="pendingWorks.length === 0" class="empty">
+          No available works.
+        </p>
       </div>
     </div>
   </div>

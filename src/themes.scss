@@ -124,13 +124,16 @@ $nb-themes: nb-register-theme(
     input-basic-focus-background-color: white,
     text-caption-2-font-weight: 400,
     input-basic-border-color: color-app2,
-    input-basic-focus-border-color: color-app3,
-    border-basic-color-4: color-app3,
+    input-basic-focus-border-color: color-app4,
+    border-basic-color-4: color-app4,
 
     // toast
     toastr-text-font-size: 0.9375rem,
     toastr-text-font-weight: 600,
-    color-danger-default: color-danger-400
+    color-danger-default: color-danger-400,
+
+    // avatar
+    user-picture-box-background-color: white
   ),
   note,
   corporate

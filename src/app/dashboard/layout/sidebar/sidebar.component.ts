@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, RouterLinkActive } from '@angular/router';
-import { StorageService, AuthService } from 'src/app/core';
+import { StorageService, AuthService, User } from 'src/app/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,13 +8,17 @@ import { StorageService, AuthService } from 'src/app/core';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
+  user!: User;
+
   constructor(
     private storageService: StorageService,
     private authService: AuthService,
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.user = this.storageService.getUser();
+  }
 
   logout(): void {
     this.authService.logout().subscribe({
