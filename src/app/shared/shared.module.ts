@@ -6,15 +6,20 @@ import {
   NbAccordionModule,
   NbAlertModule,
   NbButtonModule,
+  NbCardModule,
   NbCheckboxModule,
   NbIconModule,
   NbInputModule,
   NbLayoutModule,
+  NbListModule,
+  NbSelectModule,
   NbSidebarModule,
+  NbTagModule,
   NbUserModule,
 } from '@nebular/theme';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [],
@@ -34,7 +39,12 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     NbUserModule,
     NbInputModule,
+    NbSelectModule,
+    NbListModule,
+    NbCardModule,
     NbAlertModule,
+    NbTagModule,
+    InfiniteScrollModule,
   ],
 })
 export class SharedModule {}

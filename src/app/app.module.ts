@@ -17,6 +17,7 @@ import { CoreModule } from './core/core.module';
 import { DashboardModule } from './dashboard';
 import { NbMenuModule, NbSidebarModule } from '@nebular/theme';
 import { AuthModule } from './auth';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 const config: Partial<NbToastrConfig> | undefined = {
   hasIcon: false,
@@ -46,6 +47,9 @@ const config: Partial<NbToastrConfig> | undefined = {
     CoreModule,
     NbMenuModule.forRoot(),
     NbSidebarModule.forRoot(),
+    NgxSkeletonLoaderModule.forRoot({
+      animation: 'pulse',
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

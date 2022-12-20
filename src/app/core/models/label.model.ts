@@ -5,3 +5,8 @@ export interface Label {
   name: string;
   color: Color;
 }
+
+export interface LabelInput {
+  name: string;
+  colorId: number;
+}

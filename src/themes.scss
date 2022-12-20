@@ -126,6 +126,13 @@ $nb-themes: nb-register-theme(
     input-basic-border-color: color-app2,
     input-basic-focus-border-color: color-app4,
     border-basic-color-4: color-app4,
+    input-basic-placeholder-text-color: white,
+    input-tiny-text-font-weight: 400,
+    input-tiny-placeholder-text-font-weight: 400,
+    input-small-text-font-weight: 600,
+    input-small-placeholder-text-font-weight: 600,
+    text-paragraph-font-size: 0.75rem,
+    text-caption-2-font-size: 0.75rem,
 
     // toast
     toastr-text-font-size: 0.9375rem,
@@ -133,7 +140,23 @@ $nb-themes: nb-register-theme(
     color-danger-default: color-danger-400,
 
     // avatar
-    user-picture-box-background-color: white
+    user-picture-box-background-color: white,
+
+    // card
+    card-background-color: white,
+    card-padding: 0,
+    card-border-radius: 0.5rem,
+    card-margin-bottom: 0,
+    card-border-width: 0,
+    card-shadow: 0 2px 1px -1px color-dark,
+    card-height-small: auto,
+
+    // list
+    list-item-divider-width: 0,
+    list-item-padding: 0.5rem 1rem,
+
+    //tag
+    tag-outline-primary-hover-text-color: color-app2
   ),
   note,
   corporate

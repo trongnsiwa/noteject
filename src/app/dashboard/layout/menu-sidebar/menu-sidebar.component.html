@@ -18,49 +18,174 @@
         class="menu-sidebar-start-in-add"
         *ngIf="added"
       >
-        <textarea
+        <input
+          type="text"
           nbInput
           fullWidth
           status="basic"
-          fieldSize="tiny"
-          class="input"
-          cols="3"
+          fieldSize="small"
+          placeholder="Work name"
+          class="input name"
           id="title"
           formControlName="title"
           (mousedown)="$event.stopPropagation()"
           [class.invalid]="title?.invalid && (title?.dirty || title?.touched)"
           autofocus
           cdkFocusInitial
+        />
+        <textarea
+          nbInput
+          fullWidth
+          status="basic"
+          fieldSize="small"
+          class="input desc"
+          rows="3"
+          placeholder="Description"
+          id="description"
+          formControlName="description"
+          (mousedown)="$event.stopPropagation()"
         ></textarea>
+        <div
+          [ngClass]="[
+            labelInputs.length > 0 ? 'non-empty' : '',
+            'input label-container'
+          ]"
+        >
+          <nb-tag-list (tagRemove)="onLabelRemove($event)">
+            <nb-tag
+              *ngFor="let label of labelInputs"
+              size="tiny"
+              appearance="outline"
+              status="primary"
+              [text]="label.name"
+              [removable]="labelInputs.length > 0"
+            ></nb-tag>
+          </nb-tag-list>
+        </div>
         <div class="actions">
-          <button nbButton size="tiny" class="cancelBtn" (click)="toggleAdd()">
-            Cancel
-          </button>
-          <button
-            nbButton
-            size="tiny"
-            status="primary"
-            class="addBtn"
-            type="submit"
-          >
-            Add work
-          </button>
+          <div class="actions-start">
+            <div class="icon" #toggleIcon (click)="toggleLabel()">
+              <nb-icon
+                nbPrefix
+                icon="pricetags-outline"
+                pack="eva"
+                class="center"
+              ></nb-icon>
+            </div>
+            <div #labelCard class="actions-start-label" *ngIf="openedLabel">
+              <nb-card
+                size="small"
+                [className]="labelList.labels.length >= 5 ? 'card-height' : ''"
+              >
+                <nb-card-header>
+                  <input
+                    nbInput
+                    status="basic"
+                    class="label-input"
+                    type="text"
+                    placeholder="Type a label"
+                    id="searchedLabel"
+                    formControlName="searchedLabel"
+                  />
+                </nb-card-header>
+                <nb-card-body>
+                  <nb-list
+                    nbInfiniteList
+                    [threshold]="500"
+                    [throttleTime]="1000"
+                    (bottomThreshold)="getLabels(labelList.pageToLoadNext + 1)"
+                  >
+                    <nb-list-item
+                      *ngFor="let label of labelList.labels; let i = index"
+                    >
+                      <div class="label">
+                        <div class="label-title">
+                          <nb-icon
+                            nbPrefix
+                            icon="pricetags-outline"
+                            pack="eva"
+                            class="label-icon"
+                          ></nb-icon>
+                          <p class="label-content">{{ label.name }}</p>
+                        </div>
+
+                        <nb-checkbox
+                          status="basic"
+                          [checked]="checkedHasLabel(label)"
+                          (mousedown)="$event.stopPropagation()"
+                          (checkedChange)="checkedChangeLabels(label)"
+                        ></nb-checkbox>
+                      </div>
+                    </nb-list-item>
+                    <nb-list-item *ngFor="let _ of labelList.placeholders">
+                      <app-label-placeholder></app-label-placeholder>
+                    </nb-list-item>
+                  </nb-list>
+                  <p *ngIf="labelList.labels.length === 0" class="empty-label">
+                    No available labels.
+                  </p>
+                </nb-card-body>
+                <nb-card-footer *ngIf="haveAdded && searchedLabel?.value">
+                  <div class="label-footer" (click)="addLabelToInputs()">
+                    <nb-icon
+                      nbPrefix
+                      icon="plus-outline"
+                      pack="eva"
+                      class="label-icon"
+                    ></nb-icon>
+                    Create "{{ searchedLabel?.value }}"
+                  </div>
+                </nb-card-footer>
+              </nb-card>
+            </div>
+          </div>
+          <div class="actions-end">
+            <button
+              nbButton
+              size="tiny"
+              class="cancelBtn"
+              (click)="toggleAdd()"
+            >
+              Cancel
+            </button>
+            <button
+              nbButton
+              size="tiny"
+              status="primary"
+              class="addBtn"
+              type="submit"
+              [disabled]="workForm.invalid"
+            >
+              Add work
+            </button>
+          </div>
         </div>
       </form>
       <div
         class="menu-sidebar-start-in-body"
         id="pending"
         cdkDropList
-        [cdkDropListData]="pendingWorks"
+        [cdkDropListData]="pendingList.works"
         [cdkDropListConnectedTo]="dayIds"
         (cdkDropListDropped)="drop($event)"
       >
-        <app-pending-work
-          *ngFor="let work of pendingWorks"
-          [pendingWork]="work"
-          cdkDrag
-        ></app-pending-work>
-        <p *ngIf="pendingWorks.length === 0" class="empty">
+        <div
+          infinite-scroll
+          [infiniteScrollDistance]="distance"
+          [infiniteScrollThrottle]="throttle"
+          (scrolled)="getPendingWorks(pendingList.pageToLoadNext + 1)"
+        >
+          <app-pending-work
+            *ngFor="let work of pendingList.works"
+            [pendingWork]="work"
+            cdkDrag
+          ></app-pending-work>
+        </div>
+
+        <app-work-placeholder
+          *ngFor="let _ of pendingList.placeholders"
+        ></app-work-placeholder>
+        <p *ngIf="pendingList.works.length === 0" class="empty">
           No available works.
         </p>
       </div>
@@ -71,19 +196,39 @@
       <nb-accordion-item [expanded]="true">
         <nb-accordion-item-header>Today's works</nb-accordion-item-header>
         <nb-accordion-item-body>
-          <app-todo-work
-            *ngFor="let work of todayWorks"
-            [todoWork]="work"
-          ></app-todo-work>
+          <div
+            infinite-scroll
+            [infiniteScrollDistance]="distance"
+            [infiniteScrollThrottle]="throttle"
+            (scrolled)="getTodayWorks(todayList.pageToLoadNext + 1)"
+          >
+            <app-todo-work
+              *ngFor="let work of todayList.works"
+              [todoWork]="work"
+            ></app-todo-work>
+          </div>
+          <app-work-placeholder
+            *ngFor="let _ of todayList.placeholders"
+          ></app-work-placeholder>
         </nb-accordion-item-body>
       </nb-accordion-item>
       <nb-accordion-item>
         <nb-accordion-item-header>Saved works</nb-accordion-item-header>
         <nb-accordion-item-body>
-          <app-todo-work
-            *ngFor="let work of savedWorks"
-            [todoWork]="work"
-          ></app-todo-work>
+          <div
+            infinite-scroll
+            [infiniteScrollDistance]="distance"
+            [infiniteScrollThrottle]="throttle"
+            (scrolled)="getSavedWorks(savedList.pageToLoadNext + 1)"
+          >
+            <app-todo-work
+              *ngFor="let work of savedList.works"
+              [todoWork]="work"
+            ></app-todo-work>
+          </div>
+          <app-work-placeholder
+            *ngFor="let _ of savedList.placeholders"
+          ></app-work-placeholder>
         </nb-accordion-item-body>
       </nb-accordion-item>
     </nb-accordion>

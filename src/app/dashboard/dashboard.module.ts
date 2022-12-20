@@ -13,6 +13,9 @@ import {
   SidebarComponent,
   HeaderComponent,
 } from './layout';
+import { WorkPlaceholderComponent } from './components/work-placeholder/work-placeholder.component';
+import { LabelPlaceholderComponent } from './components/label-placeholder/label-placeholder.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import {
     TodoWorkComponent,
     HeaderComponent,
     SidebarComponent,
+    WorkPlaceholderComponent,
+    LabelPlaceholderComponent,
   ],
-  imports: [DashboardRoutingModule, SharedModule],
+  imports: [DashboardRoutingModule, SharedModule, NgxSkeletonLoaderModule],
 })
 export class DashboardModule {}

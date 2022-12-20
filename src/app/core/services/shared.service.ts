@@ -6,6 +6,7 @@ import {
 import { Injectable } from '@angular/core';
 import { NbToastrService } from '@nebular/theme';
 import { AbstractControl, FormControl } from '@angular/forms';
+import { Work } from '../models';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ import { AbstractControl, FormControl } from '@angular/forms';
 export class SharedService {
   constructor(private toastrService: NbToastrService) {}
 
-  dropped(event: CdkDragDrop<string[]>) {
+  dropped(event: CdkDragDrop<Work[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
